@@ -48,3 +48,5 @@ setInterval(function() {
     counter = (counter+1)%images.length;
     images.eq(counter).addClass("visible");
 }, 5000);
+
+$("#message").text($(window).width());
