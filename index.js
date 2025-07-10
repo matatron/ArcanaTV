@@ -47,4 +47,4 @@ setInterval(function() {
     images.removeClass("visible");
     counter = (counter+1)%images.length;
     images.eq(counter).addClass("visible");
-}, 5000);
+}, 7000);
