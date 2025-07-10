@@ -49,4 +49,4 @@ setInterval(function() {
     images.eq(counter).addClass("visible");
 }, 5000);
 
-$("#message").text($(window).width());
+$("#message h1").text($(window).height());
