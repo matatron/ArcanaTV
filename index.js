@@ -1,16 +1,18 @@
-var path = "video";
+var path = "kiosk";
 var regex = /\d+/;
 var currentPage = null;
 var timeout = null;
+var counter = 0;
+var images = $(".kioskImg");
 
 $(document).on('keyup',function(e) {
+    clearTimeout(timeout);
+    timeout = setTimeout(function() {
+        showPage("kiosk");
+    }, 1000*30);
     var newPath = ""
-    if (path === "video") {
+    if (path === "kiosk") {
         newPath = "0";
-        clearTimeout(timeout);
-        timeout = setTimeout(function() {
-            showPage("video");
-        }, 1000*30);
     } else {
         switch(e.key) {
             case "1":
@@ -40,3 +42,9 @@ function showPage(newPath) {
         path = newPath;
         $("#page-"+newPath).addClass("visible");
 }
+
+setInterval(function() {
+    images.removeClass("visible");
+    counter = (counter+1)%images.length;
+    images.eq(counter).addClass("visible");
+}, 5000);
